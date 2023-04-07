@@ -1,17 +1,65 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useContext, useState } from 'react';
+import { set, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../authentication/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+     const {userSignIn} =useContext(AuthContext)
+     const { userSignInWithGoogle } = useContext(AuthContext);
+     const [loginError,setLoginError] =useState('')
 
-    const onSubmit = (data) => {
+    //  const showCustomToast = (message, type) => {
+    //     const toastContent = (
+    //       <div className={`alert alert-${type}`}>
+    //         <div>
+    //           <span>{message}</span>
+    //         </div>
+    //       </div>
+    //     );
+      
+    //     toast(toastContent, {
+    //       position: 'top-right',
+    //       autoClose: 300,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //     });
+    //   };
+      
+              //sign in with email and password
+      const onSubmit = (data) => {
+        setLoginError('')
         console.log(data);
-       
-    };
+        userSignIn(data.email, data.password)
+          .then((result) => {
+            const user = result.user;
+            console.log('User signed in:', user);
+            // showCustomToast('Message sent successfully.', 'success');
+          })
+          .catch((error) => {
+            console.error('Error during sign in:', error.message);
+            setLoginError(error.message)
+           alert(`Wrong Password try again please: ${error.message}`, 'info');
+          });
+      };
+
+                    // Google Sign In
+      const handleSignInWithGoogle = () => {
+        userSignInWithGoogle()
+          .then((result) => {
+            console.log('Signed in with Google:', result);
+          })
+          .catch((error) => {
+            console.error('Error signing in with Google:', error);
+          });
+      };
+      
     return (
         <div className="flex justify-center items-center  h-[800px]">
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -44,14 +92,17 @@ const Login = () => {
                 </div>
 
                 <div className='text-center w-96'>  <button type="submit" className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white w-96">Login</button></div>
+                <div>
+                        {loginError && <p className='text-red-600'>{loginError}</p>}
+                 </div>
                 <p className="text-center">
                    Are you New to us <Link to="/signup" className="text-blue-500 hover:text-blue-600">Create New One</Link>
                 </p>
                 
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button  onClick={handleSignInWithGoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </form>
-            
+            {/* <ToastContainer /> */}
         </div>
     );
 };

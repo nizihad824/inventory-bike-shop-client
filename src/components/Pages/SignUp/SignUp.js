@@ -1,7 +1,8 @@
-import { useForm, Watch } from 'react-hook-form';
+import { useContext } from 'react';
+import { useForm} from 'react-hook-form';
+import { AuthContext } from '../../../authentication/AuthProvider';
 
 
-// import { Link } from 'react-router-dom';
 
 
 
@@ -9,10 +10,19 @@ import { useForm, Watch } from 'react-hook-form';
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
-    
+    const {userCreate} =useContext(AuthContext);
 
     const handleSignUp = (data) => {
         console.log(data);
+        console.log(data);
+        userCreate(data.email,data.password)
+        .then(( result) => {
+           
+            const user = result.user;
+            console.log(user)
+            // ...
+          })
+          .catch(error => console.log(error))
         
     };
 
