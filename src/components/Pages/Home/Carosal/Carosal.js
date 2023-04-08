@@ -19,8 +19,8 @@ const Carousel = () => {
             (
                 <div key={image.id} id={`slide${image.id}`} className="carousel-item relative w-full h-1/4">
                     <img src={image.src} alt={image.alt} className="w-[1440px] h-[700px] object-cover" />
-                    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white px-5 py-3">
-                        <h3 className="text-xl font-semibold">{image.caption}</h3>
+                    <div className="absolute text-center bottom-0 left-0 bg-black bg-opacity-50 text-white px-5 py-3">
+                        <h3 className="text-xl  bg-blue-500 p-3 font-semibold">{image.caption}</h3>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href={`#slide${index === 0 ? lastIndex : index}`} className="btn btn-circle">

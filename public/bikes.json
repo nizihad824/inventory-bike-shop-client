@@ -1,0 +1,75 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "name": "Speedmaster 250",
+        "details": "The Speedmaster 250 is a lightweight, efficient road bike with excellent performance.",
+        "price": 800,
+        "img": "https://i.ibb.co/2kjGz65/bike-three.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Trailblazer Pro",
+        "details": "The Trailblazer Pro is a full-suspension mountain bike built for off-road adventures.",
+        "price": 1200,
+        "img": "https://i.ibb.co/LZ5g6jL/bike-four.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Urban Rider 500",
+        "details": "The Urban Rider 500 is a comfortable and versatile city bike with a smooth ride.",
+        "price": 600,
+        "img": "https://i.ibb.co/PMmRxQF/bike-12.jpg"
+      },
+      {
+        "id": 4,
+        "name": "AeroSwift 900",
+        "details": "The AeroSwift 900 is a high-performance racing bike designed for speed and aerodynamics.",
+        "price": 2500,
+        "img": "https://i.ibb.co/khXMyy8/bike-7.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Commuter 300",
+        "details": "The Commuter 300 is a reliable and comfortable hybrid bike for daily use.",
+        "price": 450,
+        "img": "https://i.ibb.co/SKMgNkW/bike-6.jpg"
+      },
+      {
+        "id": 6,
+        "name": "E-Mountain 2000",
+        "details": "The E-Mountain 2000 is a powerful electric mountain bike for tackling any terrain.",
+        "price": 3000,
+        "img": "https://i.ibb.co/3rqWYGV/bike-one.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Folding Sprinter",
+        "details": "The Folding Sprinter is a compact and portable bike for easy storage and transportation.",
+        "price": 550,
+        "img": "https://i.ibb.co/98cXTGm/bike-5.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Gravel Grinder X",
+        "details": "The Gravel Grinder X is an all-terrain gravel bike for exploring the great outdoors.",
+        "price": 950,
+        "img": "https://i.ibb.co/hgxZxgJ/bike-two.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Touring Deluxe",
+        "details": "The Touring Deluxe is a long-distance touring bike built for comfort and durability.",
+        "price": 1200,
+        "img": "https://i.ibb.co/SKMgNkW/bike-6.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Triathlon Pro",
+        "details": "The Triathlon Pro is a versatile and efficient bike designed for triathlon events.",
+        "price": 2200,
+        "img": "https://i.ibb.co/PMmRxQF/bike-12.jpg"
+      }
+    ]
+  }
+  
