@@ -5,6 +5,7 @@ import Main from "../../Layout/Main";
 import Home from "../../components/Pages/Home/Home/Home";
 import AllBikes from "../../components/Pages/Home/Home/Bikes/AllBikes/AllBikes";
 import SingleBike from "../../components/Pages/Home/Home/Bikes/SingleBike/SingleBike";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/bike/:id',
-                element: <SingleBike></SingleBike>
+
+                element: (
+                    <PrivateRoute>
+                         <SingleBike></SingleBike>
+                    </PrivateRoute>
+               )
             }
 
 

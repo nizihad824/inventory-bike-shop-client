@@ -5,7 +5,18 @@ import { AuthContext } from '../../../authentication/AuthProvider';
 
 const Navbar = () => {
 
-    const { currentUser } = useContext(AuthContext)
+
+    const { currentUser,logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err));
+    }
+
+    
+
+
     const navItems = (
         <React.Fragment>
             <li>
@@ -15,14 +26,34 @@ const Navbar = () => {
             </li>
             <li>
                 <Link to="/" className="btn btn-ghost">
-                    About Us
+                    My Items
                 </Link>
             </li>
             <li>
                 {<Link to="/login" className="btn btn-ghost">
-                    Login
+                    Manage Items
                 </Link>}
             </li>
+            <li>
+                {<Link to="/login" className="btn btn-ghost">
+                    Add Items
+                </Link>}
+            </li>
+            {currentUser?.uid? (
+        <li>
+        <Link   onClick={handleLogOut} className="btn btn-ghost">
+        Logout
+        </Link>
+            
+         
+        </li>
+      ) : (
+        <li>
+          <Link to="/login" className="btn btn-ghost">
+            Login
+          </Link>
+        </li>
+        )}
         </React.Fragment>
     );
 
@@ -68,8 +99,8 @@ const Navbar = () => {
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                        {currentUser ? (
-                            <li>
+                        {currentUser?.uid? (
+                            <li onClick={ handleLogOut}>
                                 
                                     Logout
                                 

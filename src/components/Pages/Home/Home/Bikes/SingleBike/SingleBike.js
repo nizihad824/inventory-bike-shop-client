@@ -17,10 +17,10 @@ const SingleBike = () => {
   }, [id]);
 
   if (!bike) {
-    return <div className="hero min-h-screen bg-base-200">
+    return <div className="hero min-h-screen  bg-sky-400">
       <div className="hero-content flex-col lg:flex-row">
         <div>
-          <h1 className="text-5xl font-bold">Loading...</h1>
+          <h1 className="text-5xl font-bold ">Loading...</h1>
         </div>
       </div>
     </div>;

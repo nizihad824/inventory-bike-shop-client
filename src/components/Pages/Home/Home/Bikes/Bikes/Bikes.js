@@ -17,6 +17,8 @@ const Bikes = () => {
         setDisplayedBikes(bikes.slice(0, 6));
     }, [bikes]);
 
+    
+
     // const loadAllBikes = () => {
     //     setDisplayedBikes(bikes);
     // };
@@ -29,6 +31,17 @@ const Bikes = () => {
     const handleSeeMoreClick = () => {
         navigate('/allbikes');
       };
+
+
+      if (!bikes) {
+        return <div className="hero min-h-screen bg-base-200">
+          <div className="hero-content flex-col lg:flex-row">
+            <div>
+              <h1 className="text-5xl font-bold">Loading...</h1>
+            </div>
+          </div>
+        </div>;
+      }
 
     return (
         <div    className=' bg-blue-100 p-6'>
