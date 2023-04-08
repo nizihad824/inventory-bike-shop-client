@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Carousel from '../../../Carosal/Carosal';
+import CustomerReviews from '../Bikes/CustomerReviews/CustomerReviews';
 
 const SingleBike = () => {
   const { id } = useParams();
@@ -25,16 +27,21 @@ const SingleBike = () => {
   }
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row">
+    <div>
+      <div className="hero min-h-screen  bg-blue-100 ">
+      <div className="hero-content flex-col lg:flex-row ">
         <img src={bike.img} className="max-w-sm rounded-lg shadow-2xl" alt={bike.name} />
-        <div>
-          <h1 className="text-5xl font-bold">{bike.name}</h1>
+        <div className="max-w-md rounded-lg shadow-2xl p-10 text-black" >
+          <h1 className="text-5xl font-bold p-6">{bike.name}</h1>
           <p className="py-6">{bike.details}</p>
           <p className="py-6">Price: ${bike.price}</p>
         </div>
       </div>
+      
     </div>
+    <CustomerReviews></CustomerReviews>
+    </div>
+    
   );
 };
 

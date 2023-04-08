@@ -4,10 +4,13 @@ import router from './Routes/Routes/Routes';
 
 function App() {
   return (
-    <div>
-     <div className='max-w-[1440px] mx-auto'>
-      <RouterProvider router={router} />
-    </div>
+    <div className='bg-blue-100'>
+      <div
+      //  style={{ backgroundColor: "#A9A9A9" }}
+       className='max-w-[1440px] mx-auto bg-blue-100'>
+        <RouterProvider router={router} />
+      </div>
+
     </div>
 
 
