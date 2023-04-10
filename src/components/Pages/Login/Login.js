@@ -62,7 +62,8 @@ const Login = () => {
       
     return (
         <div className="flex justify-center items-center  h-[800px]">
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
+          <div>
+          <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
                 <h2 className="text-2xl mb-4 text-center">Login</h2>
 
                 <div className="mb-4 w-96">
@@ -82,8 +83,8 @@ const Login = () => {
                         <input
                             id="password"
                             type="password"
-                            {...register('password', { required: 'Password is required',pattern: { value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
-                            , message: 'Password must be strong'} })}
+                            {...register('password', { required: 'Password is required'
+                            , message: 'Password must be strong' })}
                             className={`w-full px-3 py-2 border border-gray-300 rounded-lg ${errors.password ? 'border-red-500' : ''}`}
                         />
                         {errors.password && <p className="text-red-500 mt-1">{errors.password.message}</p>}
@@ -99,9 +100,14 @@ const Login = () => {
                    Are you New to us <Link to="/signup" className="text-blue-500 hover:text-blue-600">Create New One</Link>
                 </p>
                 
-                <div className="divider">OR</div>
-                <button  onClick={handleSignInWithGoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                
             </form>
+            <div>
+            <div className="divider">OR</div>
+                <button  onClick={handleSignInWithGoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+            </div>
+          </div>
+            
             {/* <ToastContainer /> */}
         </div>
     );
