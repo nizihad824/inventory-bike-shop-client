@@ -30,12 +30,12 @@ const Navbar = () => {
                 </Link>
             </li>
             <li>
-                {<Link to="/login" className="btn btn-ghost">
+                {<Link to="/manageItems" className="btn btn-ghost">
                     Manage Items
                 </Link>}
             </li>
             <li>
-                {<Link to="/login" className="btn btn-ghost">
+                {<Link to="/addItems" className="btn btn-ghost">
                     Add Items
                 </Link>}
             </li>

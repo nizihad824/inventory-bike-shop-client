@@ -104,7 +104,7 @@ const Login = () => {
             </form>
             <div>
             <div className="divider">OR</div>
-                <button  onClick={handleSignInWithGoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button  onClick={handleSignInWithGoogle} className='btn btn-primary w-full'>CONTINUE WITH GOOGLE</button>
             </div>
           </div>
             

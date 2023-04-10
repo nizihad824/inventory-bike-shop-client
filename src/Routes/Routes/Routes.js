@@ -6,6 +6,8 @@ import Home from "../../components/Pages/Home/Home/Home";
 import AllBikes from "../../components/Pages/Home/Home/Bikes/AllBikes/AllBikes";
 import SingleBike from "../../components/Pages/Home/Home/Bikes/SingleBike/SingleBike";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AddItem from "../../components/Pages/Login/AddItem/AddItems";
+import ManageItems from "../../components/Pages/ManageItems/ManageItems";
 
 
 const router = createBrowserRouter([
@@ -40,7 +42,29 @@ const router = createBrowserRouter([
                          <SingleBike></SingleBike>
                     </PrivateRoute>
                )
-            }
+            },
+            {
+                path:'/addItems',
+
+                element: (
+                    <PrivateRoute>
+                         <AddItem></AddItem>
+                    </PrivateRoute>
+                )
+           },         
+            {
+                path:'/manageItems',
+
+                element: (
+                    <PrivateRoute>
+                       <ManageItems></ManageItems>
+                    </PrivateRoute>
+                )
+                    
+            }            
+                    
+               
+            
 
 
 
