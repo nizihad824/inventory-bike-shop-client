@@ -95,7 +95,8 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10  rounded-full">
-                            <img src={bike} alt='' className='h-3/4' />
+                           { currentUser?<img src={currentUser?.photoURL} alt='' className='h-3/4' />:
+                            <img src={bike} alt='' className='h-3/4' />}
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

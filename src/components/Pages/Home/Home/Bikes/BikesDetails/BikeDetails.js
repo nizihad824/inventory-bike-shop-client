@@ -2,7 +2,7 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 
 const BikeDetails = ({ bike }) => {
-  console.log("Bike",bike);
+  // console.log("Bike",bike);
 
     // const navigate = useNavigate();
     // // const handleDetailsClick = () => {

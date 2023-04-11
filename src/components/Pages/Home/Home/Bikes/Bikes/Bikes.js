@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import BikeDetails from '../BikesDetails/BikeDetails';
-import { useHistory, useNavigate } from 'react-router-dom';
+
 import CubeLoader from '../../../../../CubeLoader/CubeLoader';
+import { useNavigate } from 'react-router-dom';
 
 
 const Bikes = () => {
