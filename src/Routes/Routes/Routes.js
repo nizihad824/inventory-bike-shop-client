@@ -8,6 +8,7 @@ import SingleBike from "../../components/Pages/Home/Home/Bikes/SingleBike/Single
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddItem from "../../components/Pages/Login/AddItem/AddItems";
 import ManageItems from "../../components/Pages/ManageItems/ManageItems";
+import NotFound from "../../components/Pages/NotFound/NotFound";
 
 
 const router = createBrowserRouter([
@@ -61,7 +62,11 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 )
                     
-            }            
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>,
+              }           
                     
                
             
