@@ -13,8 +13,8 @@ const SpinningCube = () => {
     });
   
     return (
-      <Box ref={mesh} args={[1, 1, 1]} position={[0, 0, 0]}>
-        <meshStandardMaterial color={'blue'} />
+      <Box ref={mesh} args={[2, 2, 2]} position={[0, 0, 0]}>
+        <meshStandardMaterial color={'white'} />
       </Box>
     );
   };
@@ -26,7 +26,8 @@ const CubeLoader = () => {
       camera={{ position: [2, 2, 2] }}
       shadows
     >
-      <color attach="background" args={['white']} />
+      <color attach="background" args={['black']}  />
+      
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} castShadow />
       <React.Suspense fallback={null}>
