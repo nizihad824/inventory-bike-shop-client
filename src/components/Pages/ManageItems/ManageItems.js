@@ -72,7 +72,8 @@ const ManageItems = () => {
           </div>
         </td>
               <td>${bike.price}</td>
-              <td>{bike?.quantity || Math.floor(Math.random() * 10)}</td>
+              <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
+
               <th>
                 <button className="btn btn-primary btn-xs">Order</button>
               </th>
