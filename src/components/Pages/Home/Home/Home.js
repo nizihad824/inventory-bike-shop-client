@@ -4,6 +4,7 @@ import Carousel from '../Carosal/Carosal';
 import Bikes from './Bikes/Bikes/Bikes';
 import Banner from '../Banner/Banner';
 import ContactUs from './ContactUs/ContactUs';
+import CubeLoader from '../../../CubeLoader/CubeLoader';
 
 
 const Home = () => {
@@ -12,6 +13,8 @@ const Home = () => {
             {/* <Carousel></Carousel> */}
             <Banner></Banner>
             <Bikes></Bikes>
+            <CubeLoader></CubeLoader>
+            
             <ContactUs></ContactUs>
         </div>
     );
