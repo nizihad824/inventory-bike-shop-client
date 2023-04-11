@@ -12,6 +12,12 @@ const ManageItems = () => {
       .then((data) => setItems(data));
   }, []);
 
+  const fetchItems = async () => {
+    const response = await fetch('http://localhost:5000/bike');
+    const data = await response.json();
+    setItems(data);
+  };
+
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/bike/${id}`,{
       method: 'DELETE',
@@ -19,24 +25,40 @@ const ManageItems = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          setItems(bikes.filter((bike) => bike._id !== id));
+          setItems(bikes.filter((item) => item._id !== id));
         }
       });
   };
 
-  if (!bikes) {
-    return (
-      <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
-        <div className="hero-content flex-col lg:flex-row">
-          <div>
-            <CubeLoader />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const handleOrder = async (id, quantity) => {
+    await fetch(`http://localhost:5000/bike/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ quantity: quantity - 1 }),
+    });
+    fetchItems();
+  };
+
+//   if (!bikes) {
+//     return (
+//       <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+//         <div className="hero-content flex-col lg:flex-row">
+//           <div>
+//             <CubeLoader />
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
 
   return (
+    !bikes? <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+    <div className="hero-content flex-col lg:flex-row">
+      <div>
+        <CubeLoader />
+      </div>
+    </div>
+  </div>:
     <div className="overflow-x-auto w-full mt-16">
       <table className="table  w-full">
         <thead>
@@ -73,9 +95,10 @@ const ManageItems = () => {
         </td>
               <td>${bike.price}</td>
               <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
-
               <th>
-                <button className="btn btn-primary btn-xs">Order</button>
+                <button 
+                onClick={() => handleOrder(bike._id, bike?.quantity || Math.floor(Math.random() * 100))}
+                className="btn btn-primary btn-xs">Order</button>
               </th>
             </tr>
           ))}

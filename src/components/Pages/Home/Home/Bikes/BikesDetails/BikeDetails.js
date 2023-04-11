@@ -15,6 +15,7 @@ const BikeDetails = ({ bike }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title text-blue-600 text-xl font-bold">{bike.name}</h2>
+          <h2 className="card-title text-blue-600 text-sm font-bold">Stocks: {bike.quantity}</h2>
           <Link  to={`/bike/${bike._id}`}>
           <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
