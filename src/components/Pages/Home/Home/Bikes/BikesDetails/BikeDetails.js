@@ -1,12 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const BikeDetails = ({ bike }) => {
+  console.log("Bike",bike);
 
-    const navigate = useNavigate();
-    const handleDetailsClick = () => {
-        navigate(`/bike/${bike.id}`);
-      };
+    // const navigate = useNavigate();
+    // // const handleDetailsClick = () => {
+    // //     navigate(`/bike/${bike._id}`);
+    // //   };
     return (
       <div className="card shadow-2xl bg-sky-100 p-6  w-full">
         <figure>
@@ -14,12 +15,16 @@ const BikeDetails = ({ bike }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title text-blue-600 text-xl font-bold">{bike.name}</h2>
+          <Link  to={`/bike/${bike._id}`}>
           <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-        onClick={handleDetailsClick}
+        // onClick={handleDetailsClick}
       >
         Details
       </button>
+          </Link>
+         
+      
         </div>
       </div>
     );

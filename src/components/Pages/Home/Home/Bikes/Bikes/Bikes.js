@@ -8,10 +8,11 @@ const Bikes = () => {
     const [displayedBikes, setDisplayedBikes] = useState([]);
 
     useEffect(() => {
-        fetch('/bikes.json')
-            .then((response) => response.json())
-            .then((data) => setBikes(data.items));
+      fetch('http://localhost:5000/bike')
+        .then((response) => response.json())
+        .then((data) => setBikes(data)); 
     }, []);
+    
 
     useEffect(() => {
         setDisplayedBikes(bikes.slice(0, 6));
@@ -50,7 +51,7 @@ const Bikes = () => {
                 </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 ">
                 {displayedBikes.map((bike) => (
-                    <BikeDetails key={bike.id} bike={bike} />
+                    <BikeDetails key={bike._id} bike={bike} />
                 ))}
             </div>
             <div className="mx-auto text-center mt-6 mb-6">

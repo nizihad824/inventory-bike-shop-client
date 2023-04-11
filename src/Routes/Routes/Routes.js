@@ -35,14 +35,14 @@ const router = createBrowserRouter([
                 element: <AllBikes></AllBikes>
             },
             {
-                path:'/bike/:id',
-
-                element: (
-                    <PrivateRoute>
-                         <SingleBike></SingleBike>
-                    </PrivateRoute>
-               )
-            },
+                path: '/bike/:id',
+                element: <SingleBike />,
+                loader: async ({ params }) => {
+                  const response = await fetch(`http://localhost:5000/bike/${params.id}`);
+                  const data = await response.json();
+                  return { bike: data };
+                },
+              },
             {
                 path:'/addItems',
 
