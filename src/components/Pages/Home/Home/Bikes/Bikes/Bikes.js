@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BikeDetails from '../BikesDetails/BikeDetails';
 import { useHistory, useNavigate } from 'react-router-dom';
+import CubeLoader from '../../../../../CubeLoader/CubeLoader';
 
 
 const Bikes = () => {
@@ -35,19 +36,21 @@ const Bikes = () => {
 
 
       if (!bikes) {
-        return <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex-col lg:flex-row">
-            <div>
-              <h1 className="text-5xl font-bold">Loading...</h1>
+        return (
+          <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+            <div className="hero-content flex-col lg:flex-row">
+              <div>
+                <CubeLoader />
+              </div>
             </div>
           </div>
-        </div>;
+        );
       }
 
     return (
         <div    className=' bg-blue-100 p-6'>
             <div className='mt-6 bg-sky-100'>
-                <h2 className="text-2xl font-bold text-center rounded-2xl shadow-2xl text-blue-500 mt-8 mb-4 py-6">Explore Our Collection of Premium Bikes</h2>
+                <h2 className="text-2xl font-bold text-center rounded-xl shadow-2xl text-blue-500 mt-8 mb-4 py-6">Explore Our Collection of Premium Bikes</h2>
                 </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 ">
                 {displayedBikes.map((bike) => (
@@ -56,7 +59,7 @@ const Bikes = () => {
             </div>
             <div className="mx-auto text-center mt-6 mb-6">
         <button
-          className="bg-blue-200 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-500 text-white font-bold py-2 w-full px-4 rounded"
           onClick={handleSeeMoreClick} // Add this onClick handler
         >
           See More

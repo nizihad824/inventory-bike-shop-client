@@ -6,14 +6,14 @@ const RotatingImage = ({ imageUrl }) => {
   const meshRef = useRef();
 
   useFrame(({ clock }) => {
-    meshRef.current.rotation.y = clock.getElapsedTime() * 0.3;
+    meshRef.current.rotation.y = clock.getElapsedTime() * 0.2;
   });
 
   const texture = new TextureLoader().load(imageUrl);
 
   return (
     <mesh ref={meshRef}>
-      <planeGeometry args={[15, 10]} />
+      <planeGeometry args={[2, 2]} />
       <meshBasicMaterial map={texture} side={DoubleSide} />
     </mesh>
   );

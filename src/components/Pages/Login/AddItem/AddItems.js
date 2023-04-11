@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 
 function AddItems({ onAddItem }) {
+  console.log(onAddItem);
+
   const [name, setName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [details, setDetails] = useState("");
   const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (typeof onAddItem === "function") {
-      onAddItem({ name, imgUrl, details, price });
+      onAddItem({ name, imgUrl, details, price,quantity });
     }
 
     fetch("http://localhost:5000/addItems", {
@@ -18,7 +21,7 @@ function AddItems({ onAddItem }) {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ name, imgUrl, details, price }),
+      body: JSON.stringify({ name, imgUrl, details, price,quantity }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -33,6 +36,7 @@ function AddItems({ onAddItem }) {
     setImgUrl("");
     setDetails("");
     setPrice("");
+    setQuantity("")
   };
 
   return (
@@ -44,7 +48,7 @@ function AddItems({ onAddItem }) {
           <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-1">
             <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-black font-semibold shadow-xl">Name</span>
               </label>
               <input
                 type="text"
@@ -54,9 +58,9 @@ function AddItems({ onAddItem }) {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
-            <div className="form-control w-full">
+            <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text">Image URL</span>
+                <span className="label-text text-black font-semibold shadow-xl">Image URL</span>
               </label>
               <input
                 type="text"
@@ -66,9 +70,9 @@ function AddItems({ onAddItem }) {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
-            <div className="form-control w-full">
+            <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text">Details</span>
+                <span className="label-text text-black font-semibold shadow-xl">Details</span>
               </label>
               <input
                 type="text"
@@ -78,9 +82,21 @@ function AddItems({ onAddItem }) {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
-            <div className="form-control w-full">
+            <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text text-black font-semibold shadow-xl">Quantity</span>
+              </label>
+              <input
+                type="number"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                placeholder="Quantity"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text text-black font-semibold shadow-xl">Price</span>
               </label>
               <input
                 type="number"
@@ -90,7 +106,7 @@ function AddItems({ onAddItem }) {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
-            <div className="form-control w-full py-3">
+            <div className="form-control w-full  py-3">
               <button className="btn btn-primary">Add Bike</button>
             </div>
           </form>

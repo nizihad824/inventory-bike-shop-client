@@ -58,7 +58,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-base-100 flex justify-between bg-white">
+        <div className="navbar bg-base-100 flex justify-between bg-white h-26">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -80,9 +80,9 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {navItems}
                     </ul>
-                </div>
-                <Link to="/" className="btn btn-ghost text-black f normal-case text-xl">
-                    Bike Inventory
+                </div >
+                <Link to="/" className="btn btn-ghost text-black font-bold normal-case text-xl mb-3  p-1">
+                MotoMajesty <br /> Palace
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
