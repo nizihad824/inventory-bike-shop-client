@@ -26,7 +26,7 @@ const CubeLoader = () => {
       camera={{ position: [2, 2, 2] }}
       shadows
     >
-      <color attach="background" args={['black']}  />
+      <color attach="background" args={['#9DC5BB']}  />
       
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} castShadow />

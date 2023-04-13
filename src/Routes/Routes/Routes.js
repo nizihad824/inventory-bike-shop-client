@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
 
-            
+
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
@@ -39,37 +39,37 @@ const router = createBrowserRouter([
                 path: '/bike/:id',
                 element: <SingleBike />,
                 loader: async ({ params }) => {
-                  const response = await fetch(`http://localhost:5000/bike/${params.id}`);
-                  const data = await response.json();
-                  return { bike: data };
+                    const response = await fetch(`https://motorbike-inventory-server.vercel.app/bike/${params.id}`);
+                    const data = await response.json();
+                    return { bike: data };
                 },
-              },
+            },
             {
-                path:'/addItems',
+                path: '/addItems',
 
                 element: (
                     <PrivateRoute>
-                         <AddItem></AddItem>
+                        <AddItem></AddItem>
                     </PrivateRoute>
                 )
-           },         
+            },
             {
-                path:'/manageItems',
+                path: '/manageItems',
 
                 element: (
                     <PrivateRoute>
-                       <ManageItems></ManageItems>
+                        <ManageItems></ManageItems>
                     </PrivateRoute>
                 )
-                    
+
             },
             {
                 path: '*',
                 element: <NotFound></NotFound>,
-              }           
-                    
-               
-            
+            }
+
+
+
 
 
 

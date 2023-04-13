@@ -16,7 +16,7 @@ function AddItems({ onAddItem }) {
       onAddItem({ name, imgUrl, details, price,quantity });
     }
 
-    fetch("http://localhost:5000/addItems", {
+    fetch("https://motorbike-inventory-server.vercel.app/addItems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
