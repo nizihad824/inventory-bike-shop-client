@@ -39,6 +39,11 @@ const Navbar = () => {
                     Add Items
                 </Link>}
             </li>
+            <li>
+                {<Link to="/blogs" className="btn btn-ghost">
+                    Blogs
+                </Link>}
+            </li>
             {currentUser?.uid? (
         <li>
         <Link   onClick={handleLogOut} className="btn btn-ghost">
