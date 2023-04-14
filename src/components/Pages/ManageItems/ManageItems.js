@@ -3,6 +3,7 @@ import { XIcon } from '@heroicons/react/solid';
 import CubeLoader from '../../CubeLoader/CubeLoader';
 import MyOrders from '../MyOrders/MyOrders';
 import { AuthContext } from '../../../authentication/AuthProvider';
+import { TabTitle } from '../../../utilities/FunctionTitle';
 
 
 const ManageItems = ({ orders, setOrders }) => {
@@ -72,7 +73,7 @@ const ManageItems = ({ orders, setOrders }) => {
   // };
 
 
-
+  TabTitle('ManageItems');
   return (
     bikes.length < 1 ? <div className="hero flex justify-center ms-64 my-64 max-w-[1000px] ">
       <div className="hero-content flex-col lg:flex-row">
