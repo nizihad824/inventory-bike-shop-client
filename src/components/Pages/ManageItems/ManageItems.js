@@ -1,9 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { XIcon } from '@heroicons/react/solid';
 import CubeLoader from '../../CubeLoader/CubeLoader';
+import MyOrders from '../MyOrders/MyOrders';
+import { AuthContext } from '../../../authentication/AuthProvider';
 
-const ManageItems = () => {
+
+const ManageItems = ({ orders, setOrders }) => {
   const [bikes, setItems] = useState([]);
+  const { loading } = useContext(AuthContext);
+  // const [orders, setOrders] = useState([]);
+
+  const handleAddOrder = (bike) => {
+    const newOrder = {
+      _id: bike._id,
+      name: bike.name,
+      img: bike.img,
+      price: bike.price,
+      quantity: 1,
+    };
+
+    setOrders([...orders, newOrder]);
+  };
+
+
 
 
   useEffect(() => {
@@ -30,29 +49,32 @@ const ManageItems = () => {
       });
   };
 
-  const handleOrder = async (id, quantity) => {
-    await fetch(`https://motorbike-inventory-server.vercel.app/bike/${id}`, {
+  const handleOrder = async (bike, quantity) => {
+    // console.log('Before update:', bike._id, bike);
+    await fetch(`https://motorbike-inventory-server.vercel.app/bike/${bike._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ quantity: quantity - 1 }),
     });
     fetchItems();
+    handleAddOrder(bike);
+    // console.log('After update:', bike);
   };
+  // const handleOrder = async (id, quantity) => {
+  //   console.log('Before update:', id);
+  //   await fetch(`https://motorbike-inventory-server.vercel.app/bike/${id}`, {
+  //     method: 'PUT',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ quantity: quantity - 1 }),
+  //   });
+  //   fetchItems();
 
-  //   if (!bikes) {
-  //     return (
-  //       <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
-  //         <div className="hero-content flex-col lg:flex-row">
-  //           <div>
-  //             <CubeLoader />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
+  // };
+
+
 
   return (
-    !bikes ? <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+    bikes.length < 1 ? <div className="hero flex justify-center ms-64 my-64 max-w-[1000px] ">
       <div className="hero-content flex-col lg:flex-row">
         <div>
           <CubeLoader />
@@ -97,14 +119,18 @@ const ManageItems = () => {
                 <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
                 <th>
                   <button
-                    onClick={() => handleOrder(bike._id, bike?.quantity || Math.floor(Math.random() * 100))}
+                    onClick={() => handleOrder(bike, bike?.quantity || Math.floor(Math.random() * 100))}
                     className="btn btn-primary btn-xs">Order</button>
+
                 </th>
               </tr>
             ))}
           </tbody>
 
         </table>
+        {/* <Link to="/myItems">
+          <MyOrders orders={orders} />
+        </Link> */}
       </div>
   );
 };

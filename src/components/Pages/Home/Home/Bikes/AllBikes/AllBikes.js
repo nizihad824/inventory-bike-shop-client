@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import BikeDetails from '../BikesDetails/BikeDetails';
+import CubeLoader from '../../../../../CubeLoader/CubeLoader';
+import { AuthContext } from '../../../../../../authentication/AuthProvider';
 // import { useLoaderData } from 'react-router-dom';
 
 
 const AllBikes = () => {
   const [bikes, setBikes] = useState([]);
+  const { loading } = useContext(AuthContext);
 
 
   useEffect(() => {
@@ -12,6 +15,18 @@ const AllBikes = () => {
       .then((response) => response.json())
       .then((data) => setBikes(data));
   }, []);
+
+  if (bikes.length<1) {
+    return (
+      <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+        <div className="hero-content flex-col lg:flex-row">
+          <div>
+            <CubeLoader />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div >

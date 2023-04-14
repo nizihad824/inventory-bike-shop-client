@@ -36,7 +36,7 @@ const Bikes = () => {
   };
 
 
-  if (!bikes) {
+  if (bikes.length < 1) {
     return (
       <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
         <div className="hero-content flex-col lg:flex-row">

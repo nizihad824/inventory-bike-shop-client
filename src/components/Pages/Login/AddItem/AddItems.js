@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TabTitle } from "../../../../utilities/FunctionTitle";
 
 function AddItems({ onAddItem }) {
   console.log(onAddItem);
@@ -38,7 +39,7 @@ function AddItems({ onAddItem }) {
     setPrice("");
     setQuantity("")
   };
-
+  TabTitle('AddItems');
   return (
     <div className="hero  bg-sky-200 py-16">
     <div className="hero-content w-1/2 flex-col lg:flex-row-reverse ">

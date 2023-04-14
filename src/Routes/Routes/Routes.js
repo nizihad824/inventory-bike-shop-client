@@ -9,6 +9,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddItem from "../../components/Pages/Login/AddItem/AddItems";
 import ManageItems from "../../components/Pages/ManageItems/ManageItems";
 import NotFound from "../../components/Pages/NotFound/NotFound";
+import MyOrders from "../../components/Pages/MyOrders/MyOrders";
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,17 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <ManageItems></ManageItems>
+                    </PrivateRoute>
+                )
+
+            },
+            
+            {
+                path: '/myItems',
+
+                element: (
+                    <PrivateRoute>
+                       <MyOrders></MyOrders>
                     </PrivateRoute>
                 )
 

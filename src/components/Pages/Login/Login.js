@@ -3,6 +3,7 @@ import { set, useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../authentication/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import { TabTitle } from '../../../utilities/FunctionTitle';
 
 
 
@@ -59,10 +60,10 @@ const Login = () => {
             console.error('Error signing in with Google:', error);
           });
       };
-      
+      TabTitle('Login|Logout');
     return (
-        <div className="flex justify-center items-center  h-[800px]">
-          <div>
+        <div className="flex justify-center items-center p-16  h-[1000px]">
+          <div className=''>
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
                 <h2 className="text-2xl mb-4 text-center">Login</h2>
 
