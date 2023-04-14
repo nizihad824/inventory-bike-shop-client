@@ -52,7 +52,7 @@ const Blogs = () => {
 
 return (
     <div className="p-4">
-      <h1 className="text-4xl text-center font-bold mb-8">Blog</h1>
+      <h1 className="text-4xl text-center font-bold my-6">Blog</h1>
       {blogPosts.map((post, index) => (
         <div
           key={index}

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { set, useForm } from 'react-hook-form';
+import {  useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../authentication/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+
 import { TabTitle } from '../../../utilities/FunctionTitle';
 
 
@@ -109,7 +109,7 @@ const Login = () => {
             </div>
           </div>
             
-            {/* <ToastContainer /> */}
+          
         </div>
     );
 };

@@ -47,3 +47,33 @@ The use of MongoDB provides high performance, scalability, and flexibility, maki
 The purpose of this application is to showcase the possibilities that arise when combining multiple technologies to create a unique user experience. With this app, users can navigate through different views, authenticate, store and retrieve data from a real-time database, and interact with 3D graphics.
 
 As a full-stack application, it demonstrates the power of using a single programming language, JavaScript, for both front-end and back-end development. 
+
+## Component Structure
+
+Below is the component hierarchy used in this project:
+
+├── src
+│   ├── authentication
+│   ├── components
+│   │   └── assets
+│   ├── pages
+│   │   └── Home
+│   │   └── Bikes
+│   │   └── BikeDetails
+│   │   └── SingleBike
+│   │   └── ManageItems
+│   │   └── AddItems
+│   │   └── MyOrders
+│   │   └── CustomerReview
+│   │   └── ContactUs
+│   │   └── Login
+│   │   └── SignUp
+│   ├── Shared
+│   │   └── Navbar
+│   │   └── Footer
+│   ├── firebaseConfig
+│   └── Layout
+│   └── Routes
+│   └── Layout
+│   └── utilities
+
