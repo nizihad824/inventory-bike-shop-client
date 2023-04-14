@@ -81,58 +81,61 @@ const ManageItems = ({ orders, setOrders }) => {
           <CubeLoader />
         </div>
       </div>
-    </div> :
-      <div className="overflow-x-auto w-full mt-16">
-        <table className="table  w-full">
-          <thead>
-            <tr>
-              <th>Delete</th>
-              {/* <th>Delete</th> */}
-              <th>Bike Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bikes.map((bike) => (
-              <tr key={bike._id}>
-                <th>
-                  <XIcon
-                    className="h-6 w-6 text-red-600 cursor-pointer"
-                    onClick={() => handleDelete(bike._id)}
-                  />
-                </th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={bike?.img} alt="Avatar Tailwind CSS Component" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{bike.name}</div>
+    </div> :<div className="overflow-x-auto w-full mt-16">
+  <table className="table w-full" style={{ backgroundColor: '#B4BB74' }}>
+    <thead>
+      <tr>
+        <th>Delete</th>
+        <th>Bike Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {bikes.map((bike) => (
+        <tr key={bike._id}>
+          <th>
+            <XIcon
+              className="h-6 w-6 text-red-600 cursor-pointer"
+              onClick={() => handleDelete(bike._id)}
+            />
+          </th>
+          <td>
+            <div className="flex items-center space-x-3">
+              <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img
+                  src={bike?.img || `https://picsum.photos/200?random=${bike._id}`}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
 
-                    </div>
-                  </div>
-                </td>
-                <td>${bike.price}</td>
-                <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
-                <th>
-                  <button
-                    onClick={() => handleOrder(bike, bike?.quantity || Math.floor(Math.random() * 100))}
-                    className="btn btn-primary btn-xs">Order</button>
+              </div>
+              <div>
+                <div className="font-bold">{bike.name}</div>
+              </div>
+            </div>
+          </td>
+          <td>${bike.price}</td>
+          <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
+          <th>
+            <button
+              onClick={() => handleOrder(bike, bike?.quantity || Math.floor(Math.random() * 100))}
+              className="btn btn-primary btn-xs"
+            >
+              Order
+            </button>
+          </th>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
-                </th>
-              </tr>
-            ))}
-          </tbody>
-
-        </table>
-        {/* <Link to="/myItems">
-          <MyOrders orders={orders} />
-        </Link> */}
-      </div>
+      
+       
+     
   );
 };
 
