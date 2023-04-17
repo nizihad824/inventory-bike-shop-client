@@ -38,24 +38,28 @@ const Bikes = () => {
 
   if (bikes.length < 1) {
     return (
-      <div className="hero flex justify-center ms-64 my-64  bg-sky-100 max-w-[1000px] ">
+      <div className="hero flex justify-center md:mx-w-[500px] sm:mx-w-[300px] sm:my-32 my-64 bg-sky-100 max-w-[1000px]">
         <div className="hero-content flex-col lg:flex-row">
           <div>
             <CubeLoader />
           </div>
         </div>
       </div>
+
     );
   }
 
   return (
-    <div className='  p-6'
+    <div className='p-6'
       style={{ backgroundColor: "#DEE5E5" }}
     >
       <div className='mt-6'>
-        <h2 className="text-2xl font-bold text-center rounded-xl shadow-xl text-sky-700/50 mt-8 mb-4 py-6">Explore Our Collection of Premium Bikes</h2>
+        <h2 className="text-xl md:mx-w-[500px] sm:mx-w-[300px] sm:text-2xl md:text-3xl font-bold text-center lg:w-full rounded-xl shadow-xl text-sky-700/50 mt-4 sm:mt-8 mb-4 py-4 sm:py-6">
+          Explore Our Collection of Premium Bikes
+        </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 ">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-16 ">
         {displayedBikes.map((bike) => (
           <BikeDetails key={bike._id} bike={bike} />
         ))}

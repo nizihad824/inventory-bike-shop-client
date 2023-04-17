@@ -76,53 +76,51 @@ const ManageItems = ({ orders, setOrders }) => {
   TabTitle('ManageItems');
   return (
     bikes.length < 1 ? <div className="hero flex justify-center ms-64 my-64 max-w-[1000px] ">
-      <div className="hero-content flex-col lg:flex-row">
-        <div>
-          <CubeLoader />
-        </div>
-      </div>
-    </div> :<div className="overflow-x-auto w-full mt-16">
-  <table className="table w-full" style={{ backgroundColor: '#B4BB74' }}>
+  <div className="hero-content flex-col lg:flex-row">
+  <div>
+    <CubeLoader />
+  </div>
+</div>
+</div>
+:<div className="overflow-x-auto w-full mt-16 md:mx-w-[500px] sm:mx-w-[300px]">
+  <table className=" w-full md:mx-w-[500px] sm:mx-w-[300px]" style={{ backgroundColor: '#f3f4f6' }}>
     <thead>
-      <tr>
-        <th>Delete</th>
-        <th>Bike Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Status</th>
+      <tr className="bg-gray-200 text-gray-700">
+        <th className="py-3 px-2 sm:px-6 text-left">Delete</th>
+        <th className="py-3 px-2 sm:px-6 text-left">Bike Name</th>
+        <th className="py-3 px-2 sm:px-6 text-left">Price</th>
+        <th className="py-3 px-2 sm:px-6 text-left">Quantity</th>
+        <th className="py-3 px-2 sm:px-6 text-left">Status</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className="text-gray-700">
       {bikes.map((bike) => (
-        <tr key={bike._id}>
-          <th>
+        <tr key={bike._id} className="border-b border-gray-200">
+          <th className="py-3 px-2 sm:px-6">
             <XIcon
               className="h-6 w-6 text-red-600 cursor-pointer"
               onClick={() => handleDelete(bike._id)}
             />
           </th>
-          <td>
+          <td className="py-3 px-2 sm:px-6">
             <div className="flex items-center space-x-3">
-              <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
                 <img
                   src={bike?.img || `https://picsum.photos/200?random=${bike._id}`}
                   alt="Avatar Tailwind CSS Component"
                 />
               </div>
-
-              </div>
               <div>
                 <div className="font-bold">{bike.name}</div>
               </div>
             </div>
           </td>
-          <td>${bike.price}</td>
-          <td>{bike?.quantity || Math.floor(Math.random() * 100)}</td>
-          <th>
+          <td className="py-3 px-2 sm:px-6">${bike.price}</td>
+          <td className="py-3 px-2 sm:px-6">{bike?.quantity || Math.floor(Math.random() * 100)}</td>
+          <th className="py-3 px-2 sm:px-6">
             <button
               onClick={() => handleOrder(bike, bike?.quantity || Math.floor(Math.random() * 100))}
-              className="btn btn-primary btn-xs"
+              className="btn btn-primary btn-xs bg-blue-600 text-white px-4 py-2 rounded shadow-md"
             >
               Order
             </button>
@@ -132,6 +130,9 @@ const ManageItems = ({ orders, setOrders }) => {
     </tbody>
   </table>
 </div>
+
+
+
 
       
        
