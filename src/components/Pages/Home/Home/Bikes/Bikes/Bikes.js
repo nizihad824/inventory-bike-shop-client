@@ -38,8 +38,10 @@ const Bikes = () => {
 
   if (bikes.length < 1) {
     return (
-      <div className="hero flex justify-center md:mx-w-[500px] sm:mx-w-[300px] sm:my-32 my-64 bg-sky-100 max-w-[1000px]">
-        <div className="hero-content flex-col lg:flex-row">
+      <div
+      style={{ backgroundColor: "#DEE5E5" }}
+       className="hero flex justify-center ">
+        <div className="hero-content flex-col lg:flex-row md:mx-w-[500px] sm:mx-w-[300px] sm:my-32 my-64 bg-sky-100 max-w-[1000px]">
           <div>
             <CubeLoader />
           </div>
@@ -51,7 +53,7 @@ const Bikes = () => {
 
   return (
     <div className='p-6'
-      style={{ backgroundColor: "#DEE5E5" }}
+      // style={{ backgroundColor: "#DEE5E5" }}
     >
       <div className='mt-6'>
         <h2 className="text-xl md:mx-w-[500px] sm:mx-w-[300px] sm:text-2xl md:text-3xl font-bold text-center lg:w-full rounded-xl shadow-xl text-sky-700/50 mt-4 sm:mt-8 mb-4 py-4 sm:py-6">

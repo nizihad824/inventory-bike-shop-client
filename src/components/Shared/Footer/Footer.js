@@ -2,7 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200 text-base-content mt-8 p-6">
+    <footer
+    style={{ backgroundColor: "#DEE5E5" }}
+     className=" text-base-content mt-8 p-6 shadow-lg text-black">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

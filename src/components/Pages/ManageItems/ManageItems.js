@@ -76,13 +76,15 @@ const ManageItems = ({ orders, setOrders }) => {
   TabTitle('ManageItems');
   return (
     bikes.length < 1 ? <div className="hero flex justify-center ms-64 my-64 max-w-[1000px] ">
-  <div className="hero-content flex-col lg:flex-row">
+  <div 
+  style={{ backgroundColor: "#DEE5E5" }}
+  className="hero-content flex-col lg:flex-row ">
   <div>
     <CubeLoader />
   </div>
 </div>
 </div>
-:<div className="overflow-x-auto w-full mt-16 md:mx-w-[500px] sm:mx-w-[300px]">
+:<div className="overflow-x-auto w-full mt-16 md:mx-w-[500px] sm:mx-w-[300px] h-full shadow-lg">
   <table className=" w-full md:mx-w-[500px] sm:mx-w-[300px]" style={{ backgroundColor: '#f3f4f6' }}>
     <thead>
       <tr className="bg-gray-200 text-gray-700">

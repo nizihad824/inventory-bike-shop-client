@@ -3,7 +3,7 @@ import bike10 from "../../../assets/bike-13.jpeg";
 
 const Banner = () => {
   return (
-    <div className="hero rounded-md shadow-xl max-w-[1440px] max-h-[500px] py-64 mt-2" style={{ backgroundImage: `url(${bike10})` }}>
+    <div className="hero rounded-md shadow-xl max-w-[1440px] max-h-[500px] py-64" style={{ backgroundImage: `url(${bike10})` }}>
 
 <div className="main-content"
  style={{  zIndex: 2 }}

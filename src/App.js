@@ -8,7 +8,7 @@ function App() {
     style={{ backgroundColor: "#DEE5E5" }}
     >
       <div
-       className='max-w-[1440px] mx-auto bg-blue-100'>
+       className='max-w-[1440px] h-full mx-auto '>
         <RouterProvider router={router} />
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import bike from '../../assets/bike-10.jpg';
+import bike from '../../assets/bike-12.jpg';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../authentication/AuthProvider';
 
@@ -63,7 +63,9 @@ const Navbar = () => {
     );
 
     return (
-        <div style={{ backgroundColor: "#485B5B" }}
+        <div 
+        // style={{ backgroundColor: "#485B5B" }}
+        style={{ backgroundColor: "#DEE5E5" }}
         className="navbar  flex justify-between bg-white h-26 shadow-4xl">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -88,7 +90,9 @@ const Navbar = () => {
                     </ul>
                 </div >
                 <Link to="/" className="btn btn-ghost text-white font-semibold normal-case text-xl mb-3  p-1">
-                MotoMajesty <br /> Palace
+                <div className="w-10  rounded-full">
+                           <img src={bike} alt='' className='h-3/4' />
+                        </div>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
